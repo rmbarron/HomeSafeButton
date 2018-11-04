@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package homesafe;
+
+service StatusUpdater {
+    rpc UpdateLocation (UpdateLocationRequest) returns (UpdateLocationResponse) {}
+}
+
+message UpdateLocationRequest {
+    string user = 1;
+    string button = 2;
+    google.protobuf.Timestamp time = 3;
+}
+
+message UpdateLocationResponse {
+    int32 code = 1;
+    string message = 2;
+}
